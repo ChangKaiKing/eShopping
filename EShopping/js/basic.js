@@ -1,6 +1,6 @@
 function Page() {
-	var username=null;
-	var password=null;
+	var username = null;
+	var password = null;
 }
 Page.prototype = {
 
@@ -42,7 +42,7 @@ Page.prototype = {
 			//url: "http://i1y8030025.iok.la/login",
 			//url: "http://192.168.10.222:7070/login",
 			//url: "http://111.204.156.218:7070/login",
-			url:"http://111.204.156.218:8085/login",
+			url: "http://111.204.156.218:8085/login",
 			dataType: 'jsonp',
 			async: false,
 			//jsonp: 'jsonp', //回调函数名的key值 可省略
@@ -60,9 +60,15 @@ Page.prototype = {
 				//alert("1");
 				//获取全部json数据
 				//alert(JSON.stringify(datatext));
-				
-				if(datatext.success==true){
-					location.href="main.html"
+
+				if(datatext.success == true) {
+					mui.openWindow({
+						url: 'main.html',
+						id: 'main.html',
+						extras: {
+							name: this.username,
+						}
+					});
 				}
 				//dataobj = datatext;
 				//console.log(dataobj);

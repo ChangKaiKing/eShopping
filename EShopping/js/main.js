@@ -1,10 +1,7 @@
-function Page() {
-	var username = null;
-	var password = null;
-	var addJou = null;
-	var addHome = null;
-	var addSp = null;
-	var addMy = null;
+function Page(dataall) {
+	
+	this.dataall=dataall;
+	
 }
 Page.prototype = {
 
@@ -51,10 +48,17 @@ Page.prototype = {
 
 	},
 	bindEvents: function() {
-		this.addHome = plus.webview.getWebviewById('a1');
-		this.addJou = plus.webview.getWebviewById('a2');
-		this.addSp = plus.webview.getWebviewById('a3');
-		this.addMy = plus.webview.getWebviewById('a4');
+		//alert(this.dataall.data[0].createTime);
+		
+		
+		for(var i=0;i<this.dataall.length;i++){
+			if(i%=0){
+				
+			}else{
+				
+			}
+		}
+		
 		var home = mui('#home')[0];
 		home.addEventListener('tap', this.addHomeView.bind(this));
 		var journalism = mui('#journalism')[0];
@@ -63,35 +67,72 @@ Page.prototype = {
 		shoppingcart.addEventListener('tap', this.addShoppingCartView.bind(this));
 		var my = mui('#my')[0];
 		my.addEventListener('tap', this.addMyView.bind(this));
+		mui('.con')
 
 	},
 	addHomeView: function() {
-		addHome.show();
-		addJou.hide();
-		addSp.hide();
-		addMy.hide();
+		plus.webview.getWebviewById('a1').show();
+		plus.webview.getWebviewById('a2').hide();
+		plus.webview.getWebviewById('a3').hide();
+		plus.webview.getWebviewById('a4').hide();
 	},
 	addJournalismView: function() {
-		addHome.hide();
-		addJou.show();
-		addSp.hide();
-		addMy.hide();
+		plus.webview.getWebviewById('a1').hide();
+		plus.webview.getWebviewById('a2').show();
+		plus.webview.getWebviewById('a3').hide();
+		plus.webview.getWebviewById('a4').hide();
 	},
 	addShoppingCartView: function() {
-		addHome.hide();
-		addJou.hide();
-		addSp.show();
-		addMy.hide();
+		plus.webview.getWebviewById('a1').hide();
+		plus.webview.getWebviewById('a2').hide();
+		plus.webview.getWebviewById('a3').show();
+		plus.webview.getWebviewById('a4').hide();
 	},
 	addMyView: function() {
-		addHome.hide();
-		addJou.hide();
-		addSp.hide();
-		addMy.show();
+		plus.webview.getWebviewById('a1').hide();
+		plus.webview.getWebviewById('a2').hide();
+		plus.webview.getWebviewById('a3').hide();
+		plus.webview.getWebviewById('a4').show();
 	}
 }
 
 mui.plusReady(function() {
-	var page = new Page();
-	page.init();
+	
+
+	$.ajax({
+
+		type: "POST",
+		url: "http://111.204.156.218:8085/list.do",
+		dataType: 'jsonp',
+		async: false,
+		//jsonp: 'jsonp', //回调函数名的key值 可省略
+		//jsonpCallback: 'jsonp', //回调函数的函数名 可省略
+		crossDomain: true,
+		beforeSend: function() {
+			//console.log(this.username);
+		},
+		data: {
+			Username: this.name,
+		},
+		success: function(datatext) {
+			//alert("1");
+			//获取全部json数据
+			//alert(JSON.stringify(datatext));
+
+			if(datatext.success == true) {
+				var page = new Page(datatext);
+				page.init();
+			}
+			//dataobj = datatext;
+			//console.log(dataobj);
+			//alert(datatext);
+		},
+		error: function(err) {
+
+			console.log(JSON.stringify(err));
+
+		}
+
+	});
+
 });
