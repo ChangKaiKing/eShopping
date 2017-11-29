@@ -13,17 +13,43 @@ Page.prototype = {
 
 	},
 	bindEvents: function() {
+		console.log(this.dataall.data.images.length);
+		var $itemEnd = $("<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src='" + this.dataall.data.images[this.dataall.data.images.length - 1] + "'> </a> </div>");
+		$("#picLoop").append($itemEnd);
+		for(var i = 0; i < this.dataall.data.images.length; i++) {
+			if(i == 0) {
 
-		
+				var $itemEnd = $("<div class='mui-slider-item'><a href='#'><img src='" + this.dataall.data.images[i] + "'></a></div>");
+				$("#picLoop").append($itemEnd);
+				var addId = $("<div class='mui-indicator mui-active'></div>");
+				$("#idLoop").append(addId);
+			} else {
+				var $itemEnd = $("<div class='mui-slider-item'><a href='#'><img src='" + this.dataall.data.images[i] + "'></a></div>");
+				$("#picLoop").append($itemEnd);
+				var addId = $("<div class='mui-indicator'></div>");
+				$("#idLoop").append(addId);
+			}
 
-	},
-	addHomeView: function() {
+		}
+		var $itemEnd = $("<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src='" + this.dataall.data.images[0] + "'> </a> </div>");
+		$("#picLoop").append($itemEnd);
+		mui("#slider").slider({
+			interval: 3000
+		});
 
+		var $subtitle = $("<span>" + this.dataall.data.subheading + "</span>");
+		$("#introduce_text").append($subtitle);
+
+		var $addMoney=$("<span class='introduce_color'>￥"+this.dataall.data.price+"</span><s><span>￥"+this.dataall.data.marketPrice+"</span></s>");
+		$("#addmoney").append($addMoney);
 	}
+
 }
 
 mui.plusReady(function() {
-
+	var self = plus.webview.currentWebview();
+	var picId = self.picId;
+	console.log("详情页面" + picId);
 	$.ajax({
 
 		type: "POST",
@@ -37,7 +63,7 @@ mui.plusReady(function() {
 			//console.log(this.username);
 		},
 		data: {
-			id: 511,
+			id: picId,
 		},
 		success: function(datatext) {
 			//alert("1");
@@ -53,8 +79,6 @@ mui.plusReady(function() {
 			//alert(datatext);
 		},
 		error: function(err) {
-
-			console.log(JSON.stringify(err));
 
 		}
 

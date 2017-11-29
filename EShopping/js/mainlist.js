@@ -72,11 +72,12 @@ mui.plusReady(function() {
 });
 
 function action(i) {
+	console.log(i);
 	mui.openWindow({
 		url: 'details.html',
 		id: 'details.html',
 		extras: {
-			id: i,
+			picId: i,
 		}
 	});
 }
