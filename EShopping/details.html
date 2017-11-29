@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/details.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商品详情</h1>
+		</header>
+		<div class="mui-content">
+			<div id="headerImg" class="headerImg">
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="http://111.204.156.218:82/f2627849-9887-4fb2-8f82-6ed6bd3e71da.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://111.204.156.218:82/392bc858-4384-482e-9dc4-654aa2959013.jpg">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://111.204.156.218:82/bf9a57bb-ca6d-4fca-b898-abdf101542fa.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://111.204.156.218:82/e46de081-9bcb-473c-899c-3e19f7c39780.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://111.204.156.218:82/f2627849-9887-4fb2-8f82-6ed6bd3e71da.jpg">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="http://111.204.156.218:82/392bc858-4384-482e-9dc4-654aa2959013.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="introduce">
+				<div id="introduce_text">
+					<span>商品简介:</span>
+					<span>XXXXXXXXXXXXX</span>
+				</div>
+				<div id="introduce_money">
+					<span class="introduce_color">商品价格:</span>
+					<span class="introduce_color">￥100</span>
+					<s><span>￥130</span></s>
+				</div>
+			</div>
+
+			<center>
+				<hr width="95%" />
+			</center>
+			<div class="wrapper clearfix">
+				<div class="deal-section">
+					<div class="dealinfor">
+						<div class="sku">
+							<dl>
+
+								<dd>
+									<ul class="options-item clearfix">
+										<li num="0" fn="click" optionvalueid="1" class="">
+											<span style="font-size: 18px;">2*3</span>
+											<i></i>
+										</li>
+										<li num="0" fn="click" optionvalueid="2" class="">
+											<span style="font-size: 18px;">2*4</span>
+											<i></i>
+										</li>
+										<li num="0" fn="click" optionvalueid="3" class="">
+											<span style="font-size: 18px;">3*4</span>
+											<i></i>
+										</li>
+										<li num="0" fn="click" optionvalueid="4" class="">
+											<span style="font-size: 18px;">3*5</span>
+											<i></i>
+										</li>
+										<li num="0" fn="click" optionvalueid="5" class="">
+											<span style="font-size: 18px;">自定义</span>
+											<i></i>
+										</li>
+									</ul>
+								</dd>
+							</dl>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="free">
+				<span>
+					自定义：						
+				</span>
+				<input type="text" style="width:14%; padding: 0.3px;" maxlength="5" dir="rtl" />
+				<span style="font-size: 35px; align-content: center; vertical-align: middle;">*</span>
+				<input type="text" style="width:14%; padding: 0.3px;" maxlength="5" dir="rtl" />
+			</div>
+			<div class="selectpic">
+				<div id="">
+					<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">选择图片</button>
+					<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">上传图片</button>
+				</div>
+				<img src="images/5a19deff-91a7-47e8-bf26-6a4ce6124f12.jpg" />
+			</div>
+			<div class="explain">
+				<span> 商品介绍 ：</span>
+				<div>
+					<span>如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦</span>
+				</div>
+			</div>
+
+			<div class="shoppingAction">
+				<button type="button" class="mui-btn mui-btn-blue">加入购物车</button>
+				<button type="button" class="mui-btn mui-btn-red">立即购买</button>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/details.js"></script>
+		<script type="text/javascript" src="./js/jquery-1.8.1.js"></script>
+		<script type="text/javascript" src="./js/ZsSuit.js"></script>
+
+		<!-- 套装中不可选样式span.disabled  选中样式li.current  -->
+		<script>
+			//1. 配置已有套装参数
+			var zsSuit = new ZsSuit();
+
+			//设置回调函数，data表示不可选层级，skuId表示确定了唯一套装ID
+			//每一次操作，都会触发此函数的回调
+
+			//套装选择事件
+			$("li[fn='click']").click(function() {
+				var that = $(this),
+					curVal = that.attr("optionValueId"),
+					position = that.attr("num"),
+					chooseFlag = that.hasClass("current"),
+					canNotClick = that.find("span").hasClass("disabled");
+
+				//是否可点击
+				if(canNotClick) {
+					return false;
+				}
+
+				//判断选择
+				if(chooseFlag) {
+					zsSuit.chooseCancel(1, position, curVal); //样式变化
+					zsSuit.unset(position, curVal);
+				} else {
+					zsSuit.chooseCancel(2, position, curVal); //重新选中
+					zsSuit.set(position, curVal);
+				}
+			});
+
+			//套装选择导致的样式变化
+			zsSuit.chooseCancel = function(type, position, val) {
+				$(".sku").find("[num=" + position + "]").each(function() {
+					var that = $(this),
+						curVal = that.attr("optionValueId");
+
+					//type操作 1取消 2选中
+					if(curVal == val) {
+						if(type == 1) {
+							that.removeClass("current");
+						} else {
+							that.addClass("current").siblings().removeClass("current");
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

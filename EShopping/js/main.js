@@ -1,7 +1,5 @@
-function Page(dataall) {
-	
-	this.dataall=dataall;
-	
+function Page() {
+
 }
 Page.prototype = {
 
@@ -49,16 +47,7 @@ Page.prototype = {
 	},
 	bindEvents: function() {
 		//alert(this.dataall.data[0].createTime);
-		
-		
-		for(var i=0;i<this.dataall.length;i++){
-			if(i%=0){
-				
-			}else{
-				
-			}
-		}
-		
+
 		var home = mui('#home')[0];
 		home.addEventListener('tap', this.addHomeView.bind(this));
 		var journalism = mui('#journalism')[0];
@@ -67,7 +56,6 @@ Page.prototype = {
 		shoppingcart.addEventListener('tap', this.addShoppingCartView.bind(this));
 		var my = mui('#my')[0];
 		my.addEventListener('tap', this.addMyView.bind(this));
-		mui('.con')
 
 	},
 	addHomeView: function() {
@@ -97,42 +85,7 @@ Page.prototype = {
 }
 
 mui.plusReady(function() {
-	
-
-	$.ajax({
-
-		type: "POST",
-		url: "http://111.204.156.218:8085/list.do",
-		dataType: 'jsonp',
-		async: false,
-		//jsonp: 'jsonp', //回调函数名的key值 可省略
-		//jsonpCallback: 'jsonp', //回调函数的函数名 可省略
-		crossDomain: true,
-		beforeSend: function() {
-			//console.log(this.username);
-		},
-		data: {
-			Username: this.name,
-		},
-		success: function(datatext) {
-			//alert("1");
-			//获取全部json数据
-			//alert(JSON.stringify(datatext));
-
-			if(datatext.success == true) {
-				var page = new Page(datatext);
-				page.init();
-			}
-			//dataobj = datatext;
-			//console.log(dataobj);
-			//alert(datatext);
-		},
-		error: function(err) {
-
-			console.log(JSON.stringify(err));
-
-		}
-
-	});
+	var page = new Page();
+	page.init();
 
 });
