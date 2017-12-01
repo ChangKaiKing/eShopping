@@ -16,10 +16,10 @@
 			<div id="headerImg" class="headerImg">
 				<div id="slider" class="mui-slider">
 					<div class="mui-slider-group mui-slider-loop" id="picLoop">
-						
+
 					</div>
 					<div class="mui-slider-indicator" id="idLoop">
-						
+
 					</div>
 				</div>
 			</div>
@@ -27,11 +27,11 @@
 			<div class="introduce">
 				<div id="introduce_text">
 					<span>商品简介:</span>
-					
+
 				</div>
 				<div id="addmoney">
 					<span class="introduce_color">商品价格:</span>
-					
+
 				</div>
 			</div>
 
@@ -42,40 +42,17 @@
 				<div class="deal-section">
 					<div class="dealinfor">
 						<div class="sku">
-							<dl>
 
-								<dd>
-									<ul class="options-item clearfix">
-										<li num="0" fn="click" optionvalueid="1" class="">
-											<span style="font-size: 18px;">2*3</span>
-											<i></i>
-										</li>
-										<li num="0" fn="click" optionvalueid="2" class="">
-											<span style="font-size: 18px;">2*4</span>
-											<i></i>
-										</li>
-										<li num="0" fn="click" optionvalueid="3" class="">
-											<span style="font-size: 18px;">3*4</span>
-											<i></i>
-										</li>
-										<li num="0" fn="click" optionvalueid="4" class="">
-											<span style="font-size: 18px;">3*5</span>
-											<i></i>
-										</li>
-										<li num="0" fn="click" optionvalueid="5" class="">
-											<span style="font-size: 18px;">自定义</span>
-											<i></i>
-										</li>
-									</ul>
-								</dd>
-							</dl>
+							<ul class="options-item clearfix" id="addLi">
+
+							</ul>
 
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="free">
+			<div class="free" id="customAction" style="display: none;">
 				<span>
 					自定义：						
 				</span>
@@ -85,15 +62,14 @@
 			</div>
 			<div class="selectpic">
 				<div id="">
-					<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">选择图片</button>
-					<button type="button" class="mui-btn mui-btn-red mui-btn-outlined">上传图片</button>
+					<button type="button" class="mui-btn mui-btn-red mui-btn-outlined" id="addPic">选择图片</button>
 				</div>
-				<img src="images/5a19deff-91a7-47e8-bf26-6a4ce6124f12.jpg" />
+				<img src="" id="myimg_id" width="300" height="300" style="display: none; margin-top: 10px;" />
 			</div>
 			<div class="explain">
 				<span> 商品介绍 ：</span>
-				<div>
-					<span>如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦</span>
+				<div id="addDescription">
+
 				</div>
 			</div>
 
@@ -110,54 +86,6 @@
 		<script type="text/javascript" src="./js/jquery-1.8.1.js"></script>
 		<script type="text/javascript" src="./js/ZsSuit.js"></script>
 
-		<!-- 套装中不可选样式span.disabled  选中样式li.current  -->
-		<script>
-			//1. 配置已有套装参数
-			var zsSuit = new ZsSuit();
-
-			//设置回调函数，data表示不可选层级，skuId表示确定了唯一套装ID
-			//每一次操作，都会触发此函数的回调
-
-			//套装选择事件
-			$("li[fn='click']").click(function() {
-				var that = $(this),
-					curVal = that.attr("optionValueId"),
-					position = that.attr("num"),
-					chooseFlag = that.hasClass("current"),
-					canNotClick = that.find("span").hasClass("disabled");
-
-				//是否可点击
-				if(canNotClick) {
-					return false;
-				}
-
-				//判断选择
-				if(chooseFlag) {
-					zsSuit.chooseCancel(1, position, curVal); //样式变化
-					zsSuit.unset(position, curVal);
-				} else {
-					zsSuit.chooseCancel(2, position, curVal); //重新选中
-					zsSuit.set(position, curVal);
-				}
-			});
-
-			//套装选择导致的样式变化
-			zsSuit.chooseCancel = function(type, position, val) {
-				$(".sku").find("[num=" + position + "]").each(function() {
-					var that = $(this),
-						curVal = that.attr("optionValueId");
-
-					//type操作 1取消 2选中
-					if(curVal == val) {
-						if(type == 1) {
-							that.removeClass("current");
-						} else {
-							that.addClass("current").siblings().removeClass("current");
-						}
-					}
-				});
-			}
-		</script>
 	</body>
 
 </html>
