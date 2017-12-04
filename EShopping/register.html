@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/register.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav register-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+
+		<div class="mui-content">
+			<div class="inp-number">
+				<label>
+					<span class="account-number">账号：</span> 
+					<input id="adduasrname" class="number user" type="text" placeholder="请输入英文、数字或_(6-10位)" />
+				</label>
+				<span class="star">*</span>
+				<div class="inp-prompt user-prompt"></div>
+			</div>
+			<div class="isTrue" id="nameIsTrue">
+				<button type="button" class="mui-btn" id="isTrue">检测账号是否存在：</button>
+				<span class='yesName' id="yesName"></span>
+				<span class='noName' id="noName"></span>
+			</div>
+			<div class="inp-number">
+				<label>
+					<span class="account-number">密码：</span> 
+					<input id="addpsd" class="number password" type="password" />
+				</label>
+				<span class="star">*</span>
+				<div class="inp-prompt password-prompt"></div>
+			</div>
+
+			<div class="inp-number">
+				<label>
+					<span class="account-number">姓名：</span> 
+					<input id="addname" class="number name" type="text" />
+				</label>
+				<div class="inp-prompt name-prompt"></div>
+			</div>
+
+			<div class="inp-number">
+				<label>
+					<span class="account-number">身份证：</span> 
+					<input id="adduserid" class="number idnum" type="text" />
+				</label>
+				<div class="inp-prompt idnum-prompt"></div>
+			</div>
+
+			<div class="inp-number">
+				<label>
+					<span class="account-number">邮箱：</span> 
+					<input id="addemail" class="number email" type="text" />
+				</label>
+				<div class="inp-prompt email-prompt"></div>
+			</div>
+
+			<div class="inp-number">
+				<label>
+					<span class="account-number">手机号：</span> 
+					<input id="addphone" class="number tel" type="text" />
+				</label>
+				<div class="inp-prompt tel-prompt"></div>
+			</div>
+
+			<div class="prompt">带*为必填项</div>
+
+			<input id="addusercontent" class="btn" type="button" value="提交" />
+
+		</div>
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="js/mui.min.js"></script>
+
+		<script type="text/javascript" src="js/register.js"></script>
+
+	</body>
+
+</html>

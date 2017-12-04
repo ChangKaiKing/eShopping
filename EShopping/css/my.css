@@ -1,0 +1,54 @@
+ * {
+ 	padding: 0;
+ 	margin: 0;
+ }
+ 
+ html body {
+ 	width: 100%;
+ 	height: 100%;
+ }
+ 
+ .userlogin {
+ 	background: #FFFFFF;
+ 	border: groove;
+ 	margin: 2%;
+ }
+ 
+ .userpic {
+ 	margin: 3%;
+ 	width: 20%;
+ 	height: 20%;
+ 	border-radius: 50%;
+ 	overflow: hidden;
+ 	margin-left: 10%;
+ }
+ 
+ .signin {
+ 	position: absolute;
+ 	width: auto;
+ 	height: auto;
+ 	margin-left: 8%;
+ 	font-size: 1.6rem;
+ 	margin-top: 11%;
+ }
+ .goodsSituation{
+ 	
+  	padding: 3%;
+ }
+ .goodsstyle{
+ 	
+ 	width: 80%;
+ 	height: 15%;
+ }
+ .mystyle{
+ 	
+ 	text-align: center;
+ 	margin: 35%;
+ }
+ .mdzz{
+ 	margin-left: 3%;
+ 	text-align: center;
+ 	width: 20%;
+ 	height: 40%;
+ 	float: left;
+ }

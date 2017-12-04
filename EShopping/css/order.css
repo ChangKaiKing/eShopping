@@ -1,0 +1,38 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html body {
+	width: 100%;
+	height: 100%;
+}
+.commodity{
+	margin: 1%;
+	margin-top: 10%;
+	border: groove;
+	background: #FFFFFF;
+}
+.commodity_name{
+	margin: 5%;
+}
+.address{
+	margin-top: 10%;
+	margin-left: 5%;
+}
+.commodity_num{
+	text-align: right;
+	margin-right: 5%;
+	margin-top: 70%;
+}
+.commodity_pic{
+	color: #FF0000;
+	text-align: right;
+	margin-right: 5%;
+	margin-top: 10%;
+}
+.payment{
+	text-align: right;
+	margin-right: 2%;
+	margin-top: 9%;
+}

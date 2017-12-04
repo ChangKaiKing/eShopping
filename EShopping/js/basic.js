@@ -14,6 +14,14 @@ Page.prototype = {
 	bindEvents: function() {
 		var login = mui('#Signin')[0];
 		login.addEventListener('tap', this.checkUser.bind(this));
+		var addUser = mui("#addUser")[0];
+		addUser.addEventListener('tap', this.addUserPsd.bind(this))
+	},
+	addUserPsd: function() {
+		mui.openWindow({
+			url: 'register.html',
+			id: 'register.html',
+		});
 	},
 	checkUser: function() {
 
@@ -22,10 +30,10 @@ Page.prototype = {
 
 		if(this.username == "") {
 			alert("用户名不能为空");
-			return false;
+
 		} else if(this.password == "") {
 			alert("密码不能为空");
-			return false;
+
 		} else {
 			//console.log("dataobj");
 
@@ -55,9 +63,6 @@ Page.prototype = {
 						mui.openWindow({
 							url: 'main.html',
 							id: 'main.html',
-							extras: {
-								name: this.username,
-							}
 						});
 					}
 					//dataobj = datatext;
