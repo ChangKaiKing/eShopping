@@ -8,38 +8,13 @@ Page.prototype = {
 		mui.init({
 			subpages: [{
 				url: 'mainlist.html',
-				id: 'a1',
+				id: 'one',
 				styles: {
 					top: '45px', //mui标题栏默认高度为45px；
 					bottom: '49px' //默认为0px，可不定义；
 				}
-			}],
-			preloadPages: [ //缓存其他页面 
-				{
-					url: 'journalism.html',
-					id: 'a2',
-					styles: {
-						top: '45px', //mui标题栏默认高度为45px；
-						bottom: '49px' //默认为0px，可不定义；
-					}
-				},
-				{
-					url: 'shoppingcart.html',
-					id: 'a3',
-					styles: {
-						top: '45px', //mui标题栏默认高度为45px；
-						bottom: '49px' //默认为0px，可不定义；
-					}
-				},
-				{
-					url: 'my.html',
-					id: 'a4',
-					styles: {
-						top: '45px', //mui标题栏默认高度为45px；
-						bottom: '49px' //默认为0px，可不定义；
-					}
-				}
-			]
+			}]
+
 		});
 
 		this.bindEvents();
@@ -59,32 +34,108 @@ Page.prototype = {
 
 	},
 	addHomeView: function() {
-		plus.webview.getWebviewById('a1').show();
-		plus.webview.getWebviewById('a2').hide();
-		plus.webview.getWebviewById('a3').hide();
-		plus.webview.getWebviewById('a4').hide();
+		var ml = plus.webview.getWebviewById('one');
+		var jl = plus.webview.getWebviewById('tow');
+		var sc = plus.webview.getWebviewById('three');
+		var my = plus.webview.getWebviewById('four');
+		if(ml == null) {
+
+			plus.webview.open('mainlist.html', 'one', {
+				top: '45px', //mui标题栏默认高度为45px；
+				bottom: '49px' //默认为0px，可不定义；
+			});
+		}
+
+		if(jl != null) {
+			jl.close();
+		}
+		if(sc != null) {
+			sc.close();
+		}
+		if(my != null) {
+			my.close();
+		}
+
 	},
 	addJournalismView: function() {
-		plus.webview.getWebviewById('a1').hide();
-		plus.webview.getWebviewById('a2').show();
-		plus.webview.getWebviewById('a3').hide();
-		plus.webview.getWebviewById('a4').hide();
+
+		var ml = plus.webview.getWebviewById('one');
+		var jl = plus.webview.getWebviewById('tow');
+		var sc = plus.webview.getWebviewById('three');
+		var my = plus.webview.getWebviewById('four');
+		if(jl == null) {
+			plus.webview.open('journalism.html', 'tow', {
+				top: '45px', //mui标题栏默认高度为45px；
+				bottom: '49px' //默认为0px，可不定义；
+			});
+
+		} else {
+			plus.webview.getWebviewById('tow').show();
+		}
+		if(ml != null) {
+			ml.close();
+		}
+		if(sc != null) {
+			sc.close();
+		}
+		if(my != null) {
+			my.close();
+		}
 	},
 	addShoppingCartView: function() {
-		plus.webview.getWebviewById('a1').hide();
-		plus.webview.getWebviewById('a2').hide();
-		plus.webview.getWebviewById('a3').show();
-		plus.webview.getWebviewById('a4').hide();
+
+		var ml = plus.webview.getWebviewById('one');
+		var jl = plus.webview.getWebviewById('tow');
+		var sc = plus.webview.getWebviewById('three');
+		var my = plus.webview.getWebviewById('four');
+		if(sc == null) {
+			plus.webview.open('shoppingcart.html', 'three', {
+				top: '45px', //mui标题栏默认高度为45px；
+				bottom: '49px' //默认为0px，可不定义；
+			});
+		} else {
+			plus.webview.getWebviewById('three').show();
+		}
+		if(ml != null) {
+			ml.close();
+		}
+		if(jl != null) {
+			jl.close();
+		}
+		if(my != null) {
+			my.close();
+		}
 	},
 	addMyView: function() {
-		plus.webview.getWebviewById('a1').hide();
-		plus.webview.getWebviewById('a2').hide();
-		plus.webview.getWebviewById('a3').hide();
-		plus.webview.getWebviewById('a4').show();
+
+		var ml = plus.webview.getWebviewById('one');
+		var jl = plus.webview.getWebviewById('tow');
+		var sc = plus.webview.getWebviewById('three');
+		var my = plus.webview.getWebviewById('four');
+
+		if(my == null) {
+			plus.webview.open('my.html', 'four', {
+				top: '45px', //mui标题栏默认高度为45px；
+				bottom: '49px' //默认为0px，可不定义；
+			});
+		} else {
+			plus.webview.getWebviewById('four').show();
+		}
+
+		if(ml != null) {
+			ml.close();
+		}
+		if(jl != null) {
+			jl.close();
+		}
+		if(sc != null) {
+			sc.close();
+		}
 	}
 }
 
 mui.plusReady(function() {
+
 	var page = new Page();
 	page.init();
 

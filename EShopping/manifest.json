@@ -195,7 +195,32 @@
 			"index.html": {
 				"resources": [],
 				"refer": [
-					"main.html"
+					"main.html",
+					"register.html"
+				],
+				"priority": 0
+			},
+			"main.html": {
+				"resources": [
+					"mainlist.html"
+				],
+				"refer": [
+					"my.html",
+					"journalism.html"
+				],
+				"priority": 0
+			},
+			"mainlist.html": {
+				"resources": [],
+				"refer": [
+					"details.html"
+				],
+				"priority": 0
+			},
+			"my.html": {
+				"resources": [],
+				"refer": [
+					"index.html"
 				],
 				"priority": 0
 			}

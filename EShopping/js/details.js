@@ -63,6 +63,72 @@ Page.prototype = {
 		var addPic = mui("#addPic")[0];
 		addPic.addEventListener('tap', this.addPicAction.bind(this));
 
+		var nowBuyPic = mui("#nowBuy")[0];
+		nowBuyPic.addEventListener('tap', this.nowBuyCommodity.bind(this));
+
+	},
+	nowBuyCommodity: function() {
+		//商品id
+		var cmyId = this.dataall.data.id;
+		//商品规格
+
+		var cmySize = null;
+		console.log("提交" + plus.storage.getItem("speSize"));
+		if(plus.storage.getItem("speSize") == "自定义") {
+			plus.storage.removeItem("speSize");
+			var wth = $('#wth').text();
+			var lgh = $('#lgh').text();
+			if(wth == null || wth == "") {
+				alert("请填写自定义长度");
+			} else if(lgh == null || lgh == "") {
+				alert("请填写自定义长度");
+			} else {
+				cmySize = wth + "*" + lgh;
+				console.log("自定义" + cmySize);
+			}
+		} else {
+			cmySize = plus.storage.getItem("speSize");
+			console.log("选择" + cmySize);
+		}
+		//自定义图片路径
+		var cmySrc = plus.storage.getItem("picSrc");
+		//商品价格
+		var cmyMoy = this.dataall.data.price;
+		//商品名称
+		var cmyName = this.dataall.data.name;
+		//商品介绍
+		var cmySbd = this.dataall.data.subheading;
+		if(cmyId == null) {
+			alert("商品有误，请重新打开");
+		} else if(cmySize == null) {
+			alert("请选择规格");
+		} else {
+			mui.openWindow({
+				url: 'orderHtml.html',
+				id: 'orderHtml.html',
+				createNew: false,
+				show: {
+					autoShow: true, //页面loaded事件发生后自动显示，默认为true
+					duration: 500 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+				},
+				extras: {
+					cmyId: cmyId,
+					cmySize: cmySize,
+					cmySrc: cmySrc,
+					cmyMoy: cmyMoy,
+					cmyName: cmyName,
+					cmySbd: cmySbd
+
+				},
+				waiting: {
+					autoShow: true, //自动显示等待框，默认为true
+					title: '正在加载...', //等待对话框上显示的提示内容
+				}
+
+			});
+			mui.back;
+		}
+
 	},
 	addPicAction: function() {
 		if(mui.os.plus) {
@@ -95,6 +161,8 @@ Page.prototype = {
 }
 
 mui.plusReady(function() {
+	plus.storage.removeItem("picSrc");
+	plus.storage.removeItem("speSize");
 	var self = plus.webview.currentWebview();
 	var picId = self.picId;
 	console.log("详情页面" + picId);
@@ -136,16 +204,13 @@ mui.plusReady(function() {
 var specifications = function(liId, max) {
 	var s = "#li" + liId;
 	var n = "#li" + max;
-	console.log(s);
+
 	var that = $(s),
 		curVal = that.attr("optionValueId"),
 		position = that.attr("num"),
 		chooseFlag = that.hasClass("current"),
 		canNotClick = that.find("span").hasClass("disabled");
-	console.log(curVal);
-	console.log(position);
-	console.log(chooseFlag);
-	console.log(canNotClick);
+
 	//是否可点击
 	if(canNotClick) {
 
@@ -154,24 +219,32 @@ var specifications = function(liId, max) {
 
 	//判断选择
 	if(chooseFlag) {
-		chooseCancel(1, position, curVal, n); //样式变化
+		chooseCancel(1, position, curVal, s, n); //样式变化
 	} else {
-		chooseCancel(2, position, curVal, n); //重新选中
+		chooseCancel(2, position, curVal, s, n); //重新选中
 	}
 
 }
-var chooseCancel = function(type, position, val, n) {
+var chooseCancel = function(type, position, val, s, n) {
 	$(".sku").find("[num=" + position + "]").each(function() {
 		var that = $(this),
 			curVal = that.attr("optionValueId");
-		console.log(curVal);
+
 		//type操作 1取消 2选中
 		if(curVal == val) {
 
 			if(type == 1) {
 				that.removeClass("current");
 			} else {
+
 				that.addClass("current").siblings().removeClass("current");
+				plus.storage.removeItem("speSize");
+				console.log(s);
+				this.speSize = $(s).text();
+
+				plus.storage.setItem("speSize", this.speSize);
+
+				console.log(plus.storage.getItem("speSize"));
 			}
 			if($(n).hasClass("current")) {
 				$("#customAction").show();
@@ -187,7 +260,10 @@ function getImage() {
 	$("#myimg_id").show();
 	var c = plus.camera.getCamera();
 	c.captureImage(function(data) {
-		mui("#myimg_id")[0].setAttribute("src", plus.io.convertLocalFileSystemURL(data));
+		plus.storage.removeItem("picSrc");
+		var picSrc = plus.io.convertLocalFileSystemURL(data);
+		plus.storage.setItem("picSrc", picSrc);
+		mui("#myimg_id")[0].setAttribute("src", picSrc);
 	}, function(s) {
 		console.log("error" + s);
 	}, {
@@ -201,8 +277,11 @@ function galleryImg() {
 	$("#myimg_id").show();
 	// 从相册中选择图片  
 	plus.gallery.pick(function(e) {
-		var fileSrc = e.files[0]
-		mui("#myimg_id")[0].setAttribute("src", fileSrc);
+		plus.storage.removeItem("picSrc");
+		var picSrc = e.files[0]
+		plus.storage.setItem("picSrc", picSrc);
+		console.log(picSrc);
+		mui("#myimg_id")[0].setAttribute("src", picSrc);
 	}, function(e) {
 		console.log("取消选择图片");
 	}, {

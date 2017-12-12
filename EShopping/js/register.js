@@ -115,6 +115,7 @@ Page.prototype = {
 								name: this.username,
 							}
 						});
+						mui.back;
 					}
 					//dataobj = datatext;
 					//console.log(dataobj);
