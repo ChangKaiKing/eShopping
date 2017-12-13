@@ -97,10 +97,10 @@ Page.prototype = {
 				success: function(datatext) {
 					//alert("1");
 					//获取全部json数据
-					alert(JSON.stringify(datatext));
+					//alert(JSON.stringify(datatext));
 
 					if(datatext.success == true) {
-
+						
 					}
 					//dataobj = datatext;
 					//console.log(dataobj);
