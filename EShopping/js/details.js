@@ -76,8 +76,8 @@ Page.prototype = {
 		console.log("提交" + plus.storage.getItem("speSize"));
 		if(plus.storage.getItem("speSize") == "自定义") {
 			plus.storage.removeItem("speSize");
-			var wth = $('#wth').text();
-			var lgh = $('#lgh').text();
+			var wth = $('#wth').val();
+			var lgh = $('#lgh').val();
 			if(wth == null || wth == "") {
 				alert("请填写自定义长度");
 			} else if(lgh == null || lgh == "") {
@@ -322,28 +322,4 @@ function uploadHead(imgPath) {
 		//                  } 
 		//              }); 
 	}
-}
-//将图片压缩转成base64 
-function getBase64Image(img) {
-	var canvas = document.createElement("canvas");
-	var width = img.width;
-	var height = img.height;
-	// calculate the width and height, constraining the proportions 
-	if(width > height) {
-		if(width > 100) {
-			height = Math.round(height *= 100 / width);
-			width = 100;
-		}
-	} else {
-		if(height > 100) {
-			width = Math.round(width *= 100 / height);
-			height = 100;
-		}
-	}
-	canvas.width = width; /*设置新的图片的宽度*/
-	canvas.height = height; /*设置新的图片的长度*/
-	var ctx = canvas.getContext("2d");
-	ctx.drawImage(img, 0, 0, width, height); /*绘图*/
-	var dataURL = canvas.toDataURL("image/png", 0.8);
-	return dataURL.replace("data:image/png;base64,", "");
 }

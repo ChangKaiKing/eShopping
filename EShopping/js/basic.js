@@ -60,7 +60,9 @@ Page.prototype = {
 					//alert(JSON.stringify(datatext));
 
 					if(datatext.success == true) {
-
+						plus.storage.removeItem("usernameId");
+						console.log(datatext.data.username+"");
+						plus.storage.setItem("usernameId", datatext.data.username+"");
 						mui.openWindow({
 							url: 'main.html',
 							id: 'main.html',

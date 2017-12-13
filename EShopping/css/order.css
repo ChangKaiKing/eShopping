@@ -7,32 +7,55 @@ html body {
 	width: 100%;
 	height: 100%;
 }
-.commodity{
+
+.commodity {
 	margin: 1%;
 	margin-top: 10%;
 	border: groove;
 	background: #FFFFFF;
 }
-.commodity_name{
+
+.commodity_name {
 	margin: 5%;
 }
-.address{
+
+.address {
 	margin-top: 10%;
 	margin-left: 5%;
 }
-.commodity_num{
+
+.commodity_num {
 	text-align: right;
 	margin-right: 5%;
-	margin-top: 70%;
+	margin-top: 1.5rem;
 }
-.commodity_pic{
+
+.commodity_pic {
 	color: #FF0000;
 	text-align: right;
 	margin-right: 5%;
-	margin-top: 10%;
+	margin-top: 1rem;
 }
-.payment{
+
+.payment {
 	text-align: right;
-	margin-right: 2%;
-	margin-top: 9%;
+	margin-right: 5%;
+	margin-top: 1.5rem;
+}
+
+.tablestyle {
+	display: none;
+	margin-top: 0.5rem;
+	vertical-align: middle;
+}
+
+.tablestyle td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.remarks {
+	margin-top: 0.5rem;
+	margin-left: 0.9rem;
+	
 }

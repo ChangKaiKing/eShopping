@@ -11,8 +11,14 @@ Page.prototype = {
 
 	},
 	bindEvents: function() {
-		var userLogin = mui('.userlogin')[0];
-		userLogin.addEventListener('tap', this.userLoginAddUser.bind(this));
+		console.log(plus.storage.getItem("usernameId")+"");
+		if(plus.storage.getItem("usernameId") == null) {
+			var userLogin = mui('.userlogin')[0];
+			userLogin.addEventListener('tap', this.userLoginAddUser.bind(this));
+		} else {
+			$('.signin').text(plus.storage.getItem("usernameId")+"");
+		}
+
 	},
 	userLoginAddUser: function() {
 
