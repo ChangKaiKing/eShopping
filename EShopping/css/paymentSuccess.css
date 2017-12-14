@@ -1,0 +1,19 @@
+.paymentStyle{
+	background-color: #FFFFFF;
+	margin: 0.5rem;
+	padding: 4rem;
+	text-align: center;
+}
+.paymentStyle span{
+	color: #F0AD4E;
+	font-size: 2rem;
+	font-style: initial;
+}
+.paybutton{
+	text-align: center;
+	
+}
+.paybutton button{
+	margin-top: 3rem;
+	font-size: 1rem;
+}

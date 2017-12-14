@@ -46,7 +46,7 @@ mui.plusReady(function() {
 			//console.log(this.username);
 		},
 		data: {
-			username: "123",
+			username: plus.storage.getItem("usernameId"),
 		},
 		success: function(datatext) {
 			//alert("1");

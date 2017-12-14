@@ -33,6 +33,7 @@ Page.prototype = {
 		console.log("自定义图片路径：" + self.cmySrc);
 		console.log("一件的价格:" + cmySize);
 		console.log("存储一件的价格为:" + plus.storage.getItem("cs"));
+		plus.storage.setItem("cmySrc", self.cmySrc)
 		mui('#address')[0].addEventListener('tap', this.addUserRess.bind(this));
 		mui('#payment')[0].addEventListener('tap', this.nowPayment.bind(this));
 	},
@@ -69,9 +70,16 @@ Page.prototype = {
 		} else {
 			var cmyMoney = $('#cmyMoney').text();
 			console.log("准备上传");
+			var image = new Image();
+			console.log("图片路径" + plus.storage.getItem("cmySrc"));
+			image.src = plus.storage.getItem("cmySrc");
+			plus.storage.removeItem("cmySrc")
+			var imgData = getBase64Image(image);
+			var formeatBase = getBase64Image(image);
+			console.log("base64：" + formeatBase);
 			$.ajax({
 
-				type: "POST",
+				type: 'POST',
 				url: "http://111.204.156.218:8085/order/buy",
 				dataType: 'jsonp',
 				async: false,
@@ -88,11 +96,10 @@ Page.prototype = {
 					telephone: $('#phone').val(),
 					productId: self.cmyId,
 					size: self.cmySize,
-					uploadFile: "",
+					uploadFile: formeatBase,
 					amount: $('#amount').val(),
 					orderPrice: cmyMoney,
 					remarks: $('#remarks').val(),
-
 				},
 				success: function(datatext) {
 					//alert("1");
@@ -100,7 +107,24 @@ Page.prototype = {
 					//alert(JSON.stringify(datatext));
 
 					if(datatext.success == true) {
-						
+						mui.openWindow({
+							url: 'paymentSuccess.html',
+							id: 'paymentSuccess.html',
+							createNew: false,
+							extras: {
+								myfrom: 'orderHtml'
+							},
+							show: {
+								autoShow: true, //页面loaded事件发生后自动显示，默认为true
+								duration: 500 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '正在加载...', //等待对话框上显示的提示内容
+							}
+
+						});
+						plus.webview.currentWebview().close();
 					}
 					//dataobj = datatext;
 					//console.log(dataobj);
@@ -149,6 +173,8 @@ function getBase64Image(img) {
 	canvas.height = height; /*设置新的图片的长度*/
 	var ctx = canvas.getContext("2d");
 	ctx.drawImage(img, 0, 0, width, height); /*绘图*/
-	var dataURL = canvas.toDataURL("image/png", 0.8);
+	var dataURL = canvas.toDataURL("image/png", 1);
+
+	//return dataURL;
 	return dataURL.replace("data:image/png;base64,", "");
 }

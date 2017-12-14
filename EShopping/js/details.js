@@ -68,6 +68,68 @@ Page.prototype = {
 
 	},
 	nowBuyCommodity: function() {
+
+		$.ajax({
+
+			type: "POST",
+			url: "http://111.204.156.218:8085/showUser",
+			dataType: 'jsonp',
+			async: false,
+			//jsonp: 'jsonp', //回调函数名的key值 可省略
+			//jsonpCallback: 'jsonp', //回调函数的函数名 可省略
+			crossDomain: true,
+			beforeSend: function() {
+				//console.log(this.username);
+			},
+			data: {
+
+				username: plus.storage.getItem("usernameId"),
+			},
+			success: function(datatext) {
+				//alert("1");
+				//获取全部json数据
+				//alert(JSON.stringify(datatext));
+
+				if(datatext.success == true) {
+
+					plus.storage.setItem("isTure", true);
+				} else {
+					plus.storage.setItem("isTure", false);
+					mui.confirm("用户信息过期，是否重新登录？", "", ["否", "是"], function(e) {
+						if(e.index == 1) {
+							mui.openWindow({
+								url: 'index.html',
+								id: 'index.html',
+								createNew: false,
+								show: {
+									autoShow: true, //页面loaded事件发生后自动显示，默认为true
+									duration: 500 //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+								},
+								waiting: {
+									autoShow: true, //自动显示等待框，默认为true
+									title: '正在加载...', //等待对话框上显示的提示内容
+								}
+
+							});
+							mui.back;
+						} else {
+							plus.storage.removeItem("usernameId");
+							mui.toast('请登录后再进行购买');
+						}
+					})
+				}
+				//dataobj = datatext;
+				//console.log(dataobj);
+				//alert(datatext);
+			},
+			error: function(err) {
+
+				console.log(JSON.stringify(err));
+
+			}
+
+		});
+
 		//商品id
 		var cmyId = this.dataall.data.id;
 		//商品规格
@@ -293,33 +355,4 @@ function galleryImg() {
 			plus.nativeUI.alert('最多只能选择1张图片');
 		}
 	});
-}
-
-//上传头像图片 
-function uploadHead(imgPath) {
-	console.log("imgPath = " + imgPath);
-	mainImage.src = imgPath;
-	mainImage.style.width = "60px";
-	mainImage.style.height = "60px";
-
-	var image = new Image();
-	image.src = imgPath;
-	image.onload = function() {
-		var imgData = getBase64Image(image);
-		/*在这里调用上传接口*/
-		//              mui.ajax("图片上传接口", { 
-		//                  data: { 
-		//                       
-		//                  }, 
-		//                  dataType: 'json', 
-		//                  type: 'post', 
-		//                  timeout: 10000, 
-		//                  success: function(data) { 
-		//                      console.log('上传成功'); 
-		//                  }, 
-		//                  error: function(xhr, type, errorThrown) { 
-		//                      mui.toast('网络异常，请稍后再试！'); 
-		//                  } 
-		//              }); 
-	}
 }
