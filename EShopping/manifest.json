@@ -155,11 +155,11 @@
 					}
 				},
 				"android": {
-					"mdpi": "", /*普通屏程序图标，分辨率：48x48*/
-					"ldpi": "", /*大屏程序图标，分辨率：48x48*/
-					"hdpi": "", /*高分屏程序图标，分辨率：72x72*/
-					"xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
-					"xxhdpi": ""
+					"mdpi": "C:/Users/Administrator/Desktop/photo/QQ图片20171215100522.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "C:/Users/Administrator/Desktop/photo/QQ图片20171215100522.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "C:/Users/Administrator/Desktop/photo/QQ图片20171215100522.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "C:/Users/Administrator/Desktop/photo/QQ图片20171215100522.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "C:/Users/Administrator/Desktop/photo/QQ图片20171215100522.png","xxxhdpi":"C:/Users/Administrator/Desktop/photo/QQ图片20171215100522.png"
 				}
 			},
 			"splashscreen": {
@@ -183,9 +183,9 @@
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
 					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": ""
+					"hdpi": "C:/Users/Administrator/Desktop/photo/未标题-1.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "C:/Users/Administrator/Desktop/photo/启动页.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "C:/Users/Administrator/Desktop/photo/未标题-2.png"
 				}
 			}
 		}
