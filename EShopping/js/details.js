@@ -48,10 +48,10 @@ Page.prototype = {
 
 		for(var i = 0; i <= this.dataall.data.sizes.length; i++) {
 			if(i < this.dataall.data.sizes.length) {
-				var $addLi = $("<li id='li" + i + "' num='0' onclick='specifications(" + i + "," + this.dataall.data.sizes.length + ")'  optionvalueid='" + i + "' class='spe_style' ><span style='font-size: 18px;'>" + this.dataall.data.sizes[i].lth + "*" + this.dataall.data.sizes[i].wth + "</span></li>");
+				var $addLi = $("<li  id='li" + i + "' num='0' onclick='specifications(" + i + "," + this.dataall.data.sizes.length + ")'  optionvalueid='" + i + "'  ><span >" + this.dataall.data.sizes[i].lth + "*" + this.dataall.data.sizes[i].wth + "</span></li>");
 				$("#addLi").append($addLi);
 			} else {
-				var $addLi = $("<li id='li" + i + "' num='0' onclick='specifications(" + i + "," + this.dataall.data.sizes.length + ")'  optionvalueid='" + i + "' class='spe_style' ><span style='font-size: 18px;'>自定义</span></li>");
+				var $addLi = $("<li  id='li" + i + "' num='0' onclick='specifications(" + i + "," + this.dataall.data.sizes.length + ")'  optionvalueid='" + i + "'  ><span>自定义</span></li>");
 				$("#addLi").append($addLi);
 			}
 		}
