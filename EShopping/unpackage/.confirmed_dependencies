@@ -1,28 +1,34 @@
 {
-  "index.html": {
-    "refer": [
-      "main.html",
-      "register.html"
-    ]
-  },
-  "main.html": {
-    "resources": [
-      "mainlist.html"
-    ],
-    "refer": [
-      "mainlist.html",
-      "my.html",
-      "journalism.html"
-    ]
-  },
-  "mainlist.html": {
-    "refer": [
-      "details.html"
-    ]
-  },
-  "my.html": {
-    "refer": [
-      "index.html"
-    ]
-  }
+	"index.html": {
+		"refer": [
+			"main.html",
+			"register.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"mainlist.html"
+		],
+		"refer": [
+			"mainlist.html",
+			"my.html",
+			"journalism.html",
+			"shoppingcart.html"
+		]
+	},
+	"mainlist.html": {
+		"refer": [
+			"details.html"
+		]
+	},
+	"my.html": {
+		"refer": [
+			"index.html"
+		]
+	},
+	"details.html": {
+		"refer": [
+			"index.html"
+		]
+	}
 }

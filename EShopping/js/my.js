@@ -44,12 +44,12 @@ Page.prototype = {
 			mui.back;
 		} else {
 
-			mui.confirm("是否退出用户", "", ["否", "是"], function(e) {
-				if(e.index == 0) {
+			mui.confirm("是否退出用户", "", ["是", "否"], function(e) {
+				if(e.index == 1) {
 
 				} else {
 					plus.storage.removeItem("isUserTure");
-					plus.storage.setItem("isUserTure", datatext.success+"");
+					plus.storage.setItem("isUserTure", "false");
 					plus.storage.removeItem("usernameId");
 					$('.signin').text("登录/注册");
 				}

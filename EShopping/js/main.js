@@ -135,7 +135,14 @@ Page.prototype = {
 }
 
 mui.plusReady(function() {
-
+//	var self = plus.webview.currentWebview();
+//	if(self.myfrom == "userLogin") {
+//		var wvs = plus.webview.getDisplayWebview();
+//		for(var i = 0; i < wvs.length; i++) {
+//			plus.webview.close(wvs[i]);
+//		}
+//		
+//	}
 	var page = new Page();
 	page.init();
 

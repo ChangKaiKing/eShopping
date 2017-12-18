@@ -101,11 +101,20 @@ html body {
 }
 
 .introduce {
-	margin: 5%;
+	margin: 3rem;
+	font-size: 2.5rem;
+}
+
+.cmy_style {
+	margin-top: 2rem;
 }
 
 .introduce_color {
 	color: red;
+}
+
+.spe_style {
+	font-size: 2.5rem;
 }
 
 .free {
@@ -115,6 +124,7 @@ html body {
 	margin-left: 3%;
 	margin-right: 3%;
 	border: ridge;
+	font-size: 2.5rem;
 }
 
 .selectpic {
@@ -124,6 +134,11 @@ html body {
 
 .explain {
 	margin: 5%;
+	font-size: 2.5rem;
+	
+}
+.explain_style{
+	margin-top: 2rem;
 }
 
 .shoppingAction {

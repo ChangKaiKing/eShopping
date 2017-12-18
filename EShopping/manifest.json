@@ -206,7 +206,8 @@
 				],
 				"refer": [
 					"my.html",
-					"journalism.html"
+					"journalism.html",
+					"shoppingcart.html"
 				],
 				"priority": 0
 			},
@@ -218,6 +219,13 @@
 				"priority": 0
 			},
 			"my.html": {
+				"resources": [],
+				"refer": [
+					"index.html"
+				],
+				"priority": 0
+			},
+			"details.html": {
 				"resources": [],
 				"refer": [
 					"index.html"
