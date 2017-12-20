@@ -69,6 +69,7 @@ Page.prototype = {
 	},
 	nowBuyCommodity: function() {
 		console.log("请求用户是否登录");
+		var cmySize = null;
 		$.ajax({
 
 			type: "POST",
@@ -93,12 +94,12 @@ Page.prototype = {
 				if(datatext.success == true) {
 					console.log("清除是否登录状态")
 					plus.storage.removeItem("isUserTure");
-					console.log("设置为登录状态"+datatext.success);
-					plus.storage.setItem("isUserTure", datatext.success+"");
+					console.log("设置为登录状态" + datatext.success);
+					plus.storage.setItem("isUserTure", datatext.success + "");
 					console.log(plus.storage.getItem("isUserTure"));
 				} else {
 					plus.storage.removeItem("isUserTure");
-					plus.storage.setItem("isUserTure", datatext.success+"");
+					plus.storage.setItem("isUserTure", datatext.success + "");
 					mui.confirm(datatext.msg, "", ["否", "是"], function(e) {
 						if(e.index == 1) {
 							mui.openWindow({
@@ -138,7 +139,6 @@ Page.prototype = {
 		var cmyId = this.dataall.data.id;
 		//商品规格
 
-		var cmySize = null;
 		console.log("提交" + plus.storage.getItem("speSize"));
 		if(plus.storage.getItem("speSize") == "自定义") {
 			plus.storage.removeItem("speSize");

@@ -57,12 +57,12 @@ Page.prototype = {
 				success: function(datatext) {
 					//alert("1");
 					//获取全部json数据
-					//alert(JSON.stringify(datatext));
+					console.log(JSON.stringify(datatext));
 
 					if(datatext.success == true) {
 						plus.storage.removeItem("usernameId");
-						console.log(datatext.data.username+"");
-						plus.storage.setItem("usernameId", datatext.data.username+"");
+						console.log(datatext.data.username + "");
+						plus.storage.setItem("usernameId", datatext.data.username + "");
 						mui.openWindow({
 							url: 'main.html',
 							id: 'main.html',
